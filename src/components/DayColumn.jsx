@@ -1,3 +1,5 @@
+import TaskCard from './TaskCard'
+
 function DayColumn({ dia, listaTarefas }) {
   const tarefasDoDia = listaTarefas.filter((tarefa) => tarefa.day === dia)
 
@@ -9,6 +11,9 @@ function DayColumn({ dia, listaTarefas }) {
           {tarefasDoDia.length}
         </span>
       </div>
+      {tarefasDoDia.map((tarefa) => (
+        <TaskCard key={tarefa.id} tarefa={tarefa} />
+      ))}
     </div>
   )
 }

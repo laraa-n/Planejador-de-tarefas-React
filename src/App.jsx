@@ -28,6 +28,12 @@ function App() {
     )
   }
 
+  function apagarTarefa(idDaTarefa) {
+    setListaTarefas((tarefasAtuais) =>
+      tarefasAtuais.filter((tarefa) => tarefa.id !== idDaTarefa),
+    )
+  }
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
@@ -40,6 +46,7 @@ function App() {
         <WeekBoard
           listaTarefas={listaTarefas}
           marcarConcluida={marcarConcluida}
+          apagarTarefa={apagarTarefa}
         />
       </main>
     </div>

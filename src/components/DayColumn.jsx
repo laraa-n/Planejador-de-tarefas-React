@@ -1,6 +1,6 @@
 import TaskCard from './TaskCard'
 
-function DayColumn({ dia, listaTarefas, marcarConcluida }) {
+function DayColumn({ dia, listaTarefas, marcarConcluida, apagarTarefa }) {
   const tarefasDoDia = listaTarefas.filter((tarefa) => tarefa.day === dia)
 
   return (
@@ -16,6 +16,7 @@ function DayColumn({ dia, listaTarefas, marcarConcluida }) {
           key={tarefa.id}
           tarefa={tarefa}
           marcarConcluida={marcarConcluida}
+          apagarTarefa={apagarTarefa}
         />
       ))}
     </div>

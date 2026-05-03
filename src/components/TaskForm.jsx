@@ -19,7 +19,7 @@ function TaskForm({ adicionarTarefa }) {
     <section className="mb-6 rounded-xl bg-white p-4 shadow-md">
       <h2 className="mb-4 text-xl font-semibold text-slate-800">Nova tarefa</h2>
       <form
-        className="grid grid-cols-1 gap-3 md:grid-cols-4"
+        className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4"
         onSubmit={(evento) => {
           evento.preventDefault()
           adicionarTarefa({

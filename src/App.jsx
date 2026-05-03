@@ -7,6 +7,7 @@ import tarefasIniciais from './data/tasks.json'
 
 function App() {
   const [listaTarefas, setListaTarefas] = useState(tarefasIniciais)
+  const [filtroAtual, setFiltroAtual] = useState('todas')
 
   function adicionarTarefa(novaTarefa) {
     setListaTarefas((tarefasAtuais) => [
@@ -35,14 +36,64 @@ function App() {
     )
   }
 
+  const tarefasFiltradas = listaTarefas.filter((tarefa) => {
+    if (filtroAtual === 'pendentes') {
+      return !tarefa.done
+    }
+
+    if (filtroAtual === 'concluidas') {
+      return tarefa.done
+    }
+
+    return true
+  })
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
       <main className="mx-auto max-w-[1600px] px-4 py-6">
         <TaskForm adicionarTarefa={adicionarTarefa} />
         <Summary listaTarefas={listaTarefas} />
+        <section className="mb-6 rounded-xl bg-white p-4 shadow-md">
+          <h2 className="mb-3 text-lg font-semibold text-slate-800">Filtro</h2>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                filtroAtual === 'todas'
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+              onClick={() => setFiltroAtual('todas')}
+            >
+              Todas
+            </button>
+            <button
+              type="button"
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                filtroAtual === 'pendentes'
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+              onClick={() => setFiltroAtual('pendentes')}
+            >
+              Pendentes
+            </button>
+            <button
+              type="button"
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                filtroAtual === 'concluidas'
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+              onClick={() => setFiltroAtual('concluidas')}
+            >
+              Concluidas
+            </button>
+          </div>
+        </section>
         <WeekBoard
-          listaTarefas={listaTarefas}
+          listaTarefas={tarefasFiltradas}
           marcarConcluida={marcarConcluida}
           apagarTarefa={apagarTarefa}
         />

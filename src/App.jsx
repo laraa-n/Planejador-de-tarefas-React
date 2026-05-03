@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import TaskForm from './components/TaskForm'
+import WeekBoard from './components/WeekBoard'
 import tarefasIniciais from './data/tasks.json'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <p className="text-sm text-slate-500">Tarefas carregadas</p>
           <strong className="text-2xl text-slate-800">{listaTarefas.length}</strong>
         </div>
+        <WeekBoard listaTarefas={listaTarefas} />
       </main>
     </div>
   )

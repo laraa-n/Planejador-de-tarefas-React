@@ -4,18 +4,18 @@ function Summary({ listaTarefas }) {
   const pendentes = total - concluidas
 
   return (
-    <section className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-      <div className="rounded-xl bg-white p-4 shadow-md">
-        <p className="text-sm text-slate-500">Total</p>
-        <strong className="text-2xl text-slate-800">{total}</strong>
+    <section className="grid grid-cols-3 gap-3">
+      <div className="rounded-[24px] bg-slate-900 p-4 text-white shadow-sm">
+        <p className="text-xs uppercase tracking-wide text-slate-300">Total</p>
+        <strong className="mt-2 block text-3xl">{total}</strong>
       </div>
-      <div className="rounded-xl bg-white p-4 shadow-md">
-        <p className="text-sm text-slate-500">Concluidas</p>
-        <strong className="text-2xl text-slate-800">{concluidas}</strong>
+      <div className="rounded-[24px] bg-blue-500 p-4 text-white shadow-sm">
+        <p className="text-xs uppercase tracking-wide text-blue-100">Concluidas</p>
+        <strong className="mt-2 block text-3xl">{concluidas}</strong>
       </div>
-      <div className="rounded-xl bg-white p-4 shadow-md">
-        <p className="text-sm text-slate-500">Pendentes</p>
-        <strong className="text-2xl text-slate-800">{pendentes}</strong>
+      <div className="rounded-[24px] bg-white p-4 shadow-sm">
+        <p className="text-xs uppercase tracking-wide text-slate-400">Pendentes</p>
+        <strong className="mt-2 block text-3xl text-slate-800">{pendentes}</strong>
       </div>
     </section>
   )

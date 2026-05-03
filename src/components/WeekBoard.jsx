@@ -12,7 +12,8 @@ const diasDaSemana = [
 
 function WeekBoard({ listaTarefas, marcarConcluida, apagarTarefa }) {
   return (
-    <section className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-7">
+    <section className="overflow-x-auto pb-2">
+      <div className="grid min-w-[1120px] grid-cols-7 gap-4">
       {diasDaSemana.map((dia) => (
         <DayColumn
           key={dia}
@@ -22,6 +23,7 @@ function WeekBoard({ listaTarefas, marcarConcluida, apagarTarefa }) {
           apagarTarefa={apagarTarefa}
         />
       ))}
+      </div>
     </section>
   )
 }

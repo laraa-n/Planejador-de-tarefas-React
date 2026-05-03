@@ -59,21 +59,33 @@ function App() {
   })
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200">
       <Header />
-      <main className="mx-auto max-w-[1600px] px-4 py-6">
-        <TaskForm adicionarTarefa={adicionarTarefa} />
-        <Summary listaTarefas={listaTarefas} />
-        <section className="mb-6 rounded-xl bg-white p-4 shadow-md">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <h2 className="mb-3 text-lg font-semibold text-slate-800">Filtro</h2>
-              <div className="flex flex-wrap gap-2">
+      <main className="mx-auto max-w-[1600px] px-4 py-6 lg:px-6">
+        <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)]">
+          <aside className="space-y-5 xl:sticky xl:top-6 xl:self-start">
+            <Summary listaTarefas={listaTarefas} />
+            <TaskForm adicionarTarefa={adicionarTarefa} />
+            <section className="rounded-[28px] border border-slate-200 bg-white/90 p-5 shadow-sm">
+              <div className="mb-4 flex items-center justify-between">
+                <div>
+                  <h2 className="text-lg font-semibold text-slate-800">Filtrar</h2>
+                  <p className="text-sm text-slate-500">Escolhe o que quer ver.</p>
+                </div>
                 <button
                   type="button"
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                  className="rounded-full bg-red-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-600"
+                  onClick={limparConcluidas}
+                >
+                  Limpar
+                </button>
+              </div>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 xl:grid-cols-1">
+                <button
+                  type="button"
+                  className={`rounded-2xl px-4 py-3 text-left text-sm font-medium transition ${
                     filtroAtual === 'todas'
-                      ? 'bg-blue-500 text-white'
+                      ? 'bg-blue-500 text-white shadow-sm'
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                   onClick={() => setFiltroAtual('todas')}
@@ -82,9 +94,9 @@ function App() {
                 </button>
                 <button
                   type="button"
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                  className={`rounded-2xl px-4 py-3 text-left text-sm font-medium transition ${
                     filtroAtual === 'pendentes'
-                      ? 'bg-blue-500 text-white'
+                      ? 'bg-blue-500 text-white shadow-sm'
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                   onClick={() => setFiltroAtual('pendentes')}
@@ -93,9 +105,9 @@ function App() {
                 </button>
                 <button
                   type="button"
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                  className={`rounded-2xl px-4 py-3 text-left text-sm font-medium transition ${
                     filtroAtual === 'concluidas'
-                      ? 'bg-blue-500 text-white'
+                      ? 'bg-blue-500 text-white shadow-sm'
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                   onClick={() => setFiltroAtual('concluidas')}
@@ -103,21 +115,27 @@ function App() {
                   Concluidas
                 </button>
               </div>
+            </section>
+          </aside>
+          <section className="rounded-[32px] border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur-sm">
+            <div className="mb-4 flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-semibold text-slate-800">Quadro semanal</h2>
+                <p className="text-sm text-slate-500">
+                  As tarefas ficam separadas por dia em um painel lateral.
+                </p>
+              </div>
+              <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-white">
+                {tarefasFiltradas.length} visiveis
+              </span>
             </div>
-            <button
-              type="button"
-              className="rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-600"
-              onClick={limparConcluidas}
-            >
-              Limpar concluidas
-            </button>
-          </div>
-        </section>
-        <WeekBoard
-          listaTarefas={tarefasFiltradas}
-          marcarConcluida={marcarConcluida}
-          apagarTarefa={apagarTarefa}
-        />
+            <WeekBoard
+              listaTarefas={tarefasFiltradas}
+              marcarConcluida={marcarConcluida}
+              apagarTarefa={apagarTarefa}
+            />
+          </section>
+        </div>
       </main>
     </div>
   )

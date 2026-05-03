@@ -16,10 +16,11 @@ function TaskForm({ adicionarTarefa }) {
   const [prioridadeEscolhida, setPrioridadeEscolhida] = useState('Media')
 
   return (
-    <section className="mb-6 rounded-xl bg-white p-4 shadow-md">
-      <h2 className="mb-4 text-xl font-semibold text-slate-800">Nova tarefa</h2>
+    <section className="rounded-[28px] border border-slate-200 bg-white/90 p-5 shadow-sm">
+      <h2 className="mb-1 text-xl font-semibold text-slate-800">Nova tarefa</h2>
+      <p className="mb-4 text-sm text-slate-500">Preenche rapido e manda para o dia certo.</p>
       <form
-        className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4"
+        className="grid grid-cols-1 gap-3"
         onSubmit={(evento) => {
           evento.preventDefault()
           adicionarTarefa({
@@ -34,14 +35,14 @@ function TaskForm({ adicionarTarefa }) {
       >
         <input
           type="text"
-          className="rounded-lg border border-slate-300 px-3 py-2 text-slate-700 outline-none focus:border-blue-500"
+          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white"
           placeholder="Digite uma tarefa"
           value={titulo}
           required
           onChange={(evento) => setTitulo(evento.target.value)}
         />
         <select
-          className="rounded-lg border border-slate-300 px-3 py-2 text-slate-700 outline-none focus:border-blue-500"
+          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white"
           value={diaEscolhido}
           onChange={(evento) => setDiaEscolhido(evento.target.value)}
         >
@@ -52,7 +53,7 @@ function TaskForm({ adicionarTarefa }) {
           ))}
         </select>
         <select
-          className="rounded-lg border border-slate-300 px-3 py-2 text-slate-700 outline-none focus:border-blue-500"
+          className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white"
           value={prioridadeEscolhida}
           onChange={(evento) => setPrioridadeEscolhida(evento.target.value)}
         >
@@ -62,7 +63,7 @@ function TaskForm({ adicionarTarefa }) {
         </select>
         <button
           type="submit"
-          className="rounded-lg bg-blue-500 px-4 py-2 font-medium text-white transition hover:bg-blue-600"
+          className="rounded-2xl bg-slate-900 px-4 py-3 font-medium text-white transition hover:bg-slate-800"
         >
           Adicionar
         </button>

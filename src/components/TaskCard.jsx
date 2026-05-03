@@ -1,6 +1,14 @@
 function TaskCard({ tarefa, marcarConcluida, apagarTarefa }) {
+  const corDaPrioridade = {
+    Alta: 'border-red-500',
+    Media: 'border-yellow-500',
+    Baixa: 'border-green-500',
+  }
+
   return (
-    <article className="mb-3 rounded-lg border border-slate-200 bg-white p-3 shadow-md">
+    <article
+      className={`mb-3 rounded-lg border-l-4 bg-white p-3 shadow-md ${corDaPrioridade[tarefa.priority]}`}
+    >
       <h3
         className={`font-medium text-slate-800 ${tarefa.done ? 'line-through opacity-60' : ''}`}
       >

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Revisar materia de front",
+    "day": "Segunda",
+    "priority": "Alta",
+    "done": false
+  },
+  {
+    "id": 2,
+    "title": "Fazer resumo de redes",
+    "day": "Terca",
+    "priority": "Media",
+    "done": false
+  },
+  {
+    "id": 3,
+    "title": "Entregar atividade de logica",
+    "day": "Quarta",
+    "priority": "Alta",
+    "done": true
+  },
+  {
+    "id": 4,
+    "title": "Organizar caderno",
+    "day": "Quinta",
+    "priority": "Baixa",
+    "done": false
+  },
+  {
+    "id": 5,
+    "title": "Treinar exercicios de css",
+    "day": "Sexta",
+    "priority": "Media",
+    "done": false
+  },
+  {
+    "id": 6,
+    "title": "Ler sobre react",
+    "day": "Sabado",
+    "priority": "Baixa",
+    "done": true
+  },
+  {
+    "id": 7,
+    "title": "Planejar a semana seguinte",
+    "day": "Domingo",
+    "priority": "Alta",
+    "done": false
+  }
+]

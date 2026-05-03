@@ -10,11 +10,15 @@ function App() {
   const [filtroAtual, setFiltroAtual] = useState('todas')
 
   function adicionarTarefa(novaTarefa) {
+    if (!novaTarefa.title.trim()) {
+      return
+    }
+
     setListaTarefas((tarefasAtuais) => [
       ...tarefasAtuais,
       {
         id: Date.now(),
-        title: novaTarefa.title,
+        title: novaTarefa.title.trim(),
         day: novaTarefa.day,
         priority: novaTarefa.priority,
         done: false,

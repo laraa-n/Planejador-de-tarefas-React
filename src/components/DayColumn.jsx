@@ -11,6 +11,9 @@ function DayColumn({ dia, listaTarefas, marcarConcluida, apagarTarefa }) {
           {tarefasDoDia.length}
         </span>
       </div>
+      {tarefasDoDia.length === 0 && (
+        <p className="text-sm text-slate-400">Nenhuma tarefa para este dia</p>
+      )}
       {tarefasDoDia.map((tarefa) => (
         <TaskCard
           key={tarefa.id}
